@@ -8,19 +8,19 @@ type Props = {
   };
 };
 
-// Dynamic metadata for SEO
-// export async function generateMetadata({ params }: Props): Promise<Metadata> {
-//   const slug = params.post;
-//   const post: Post = await getPostBySlug(slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = params.post;
+  const post: Post = await getPostBySlug(slug);
 
-//   return {
-//     title: `${post.name} | VS Pattern Library`,
-//     description: post.description,
-//   };
-// }
+  return {
+    title: `${post.name} | VS Pattern Library`,
+    description: post.description,
+  };
+}
 
 export default async function Post({ params }: Props) {
   const slug = params.post;
+  console.log(slug, "hlelo");
   const post: Post = await getPostBySlug(slug);
 
   return (

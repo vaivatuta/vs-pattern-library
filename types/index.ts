@@ -1,9 +1,7 @@
-import { Slug } from "sanity";
-
 export type Post = {
   _id: string;
   name: string;
-  slug: Slug;
+  slug: string;
   postType: PostTypeReference;
   description: string;
   codeBlocks: CodeBlock[];

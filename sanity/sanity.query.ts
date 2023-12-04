@@ -6,7 +6,7 @@ export async function getPosts() {
     groq`*[_type == "post"]{
       _id,
       name,
-      slug,
+      "slug": slug.current,
       postType->,
       description,
       codeBlocks[]{
@@ -22,7 +22,6 @@ export async function getPostBySlug(slug: string) {
     groq`*[_type == "post" && slug.current == $slug][0]{
       _id,
       name,
-      // slug,
       postType->,
       description,
       codeBlocks[]{

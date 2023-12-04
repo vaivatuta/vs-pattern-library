@@ -22,9 +22,7 @@ export default async function Home() {
               {posts.map((post) => (
                 <div key={post._id}>
                   <Link
-                    href={`/${i === 0 ? "components" : "hooks"}/${
-                      post.slug.current
-                    }`}
+                    href={`/${i === 0 ? "components" : "hooks"}/${post.slug}`}
                   >
                     {post.name}
                   </Link>
