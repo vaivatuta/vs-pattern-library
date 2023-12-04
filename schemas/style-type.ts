@@ -1,8 +1,8 @@
 import { defineField } from "sanity";
 
-const language = {
-  name: "language",
-  title: "Language",
+export const styleType = {
+  name: "styleType",
+  title: "Style Type",
   type: "document",
   fields: [
     defineField({
@@ -13,5 +13,3 @@ const language = {
     }),
   ],
 };
-
-export default language;

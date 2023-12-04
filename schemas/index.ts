@@ -1,5 +1,5 @@
-import component from "./component";
-import language from "./language";
-import componentType from "./component-type";
+import { componentType } from "./component-type";
+import { post } from "./post";
+import { styleType } from "./style-type";
 
-export const schemaTypes = [component, language, componentType];
+export const schemaTypes = [componentType, post, styleType];
