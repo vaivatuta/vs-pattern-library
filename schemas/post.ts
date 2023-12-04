@@ -12,10 +12,20 @@ export const post = {
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "componentType",
-      title: "Component Type",
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "name",
+        maxLength: 96,
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "postType",
+      title: "Post Type",
       type: "reference",
-      to: [{ type: "componentType" }],
+      to: [{ type: "postType" }],
       validation: (rule) => rule.required(),
     }),
     {

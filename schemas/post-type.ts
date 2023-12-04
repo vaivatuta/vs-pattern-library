@@ -1,8 +1,8 @@
 import { defineField } from "sanity";
 
-export const componentType = {
-  name: "componentType",
-  title: "Component Type",
+export const postType = {
+  name: "postType",
+  title: "Post Type",
   type: "document",
   fields: [
     defineField({
