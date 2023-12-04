@@ -13,8 +13,7 @@ export default function Footer() {
             rel="noreferrer noopener"
             className="hover:text-white duration-200"
           >
-            Prepared by{" "}
-            <span className="text-green-400">Vaiva Staugaityte</span>
+            Prepared by <span className="text-green-400">Vaiva</span>
           </a>
           <a
             href="https://github.com/daleinen7"

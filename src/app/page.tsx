@@ -21,11 +21,7 @@ export default async function Home() {
             <ul className="flex flex-col gap-1">
               {posts.map((post) => (
                 <div key={post._id}>
-                  <Link
-                    href={`/${i === 0 ? "components" : "hooks"}/${post.slug}`}
-                  >
-                    {post.name}
-                  </Link>
+                  <Link href={`/post/${post.slug}`}>{post.name}</Link>
                 </div>
               ))}
             </ul>
