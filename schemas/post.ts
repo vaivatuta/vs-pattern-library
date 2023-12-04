@@ -41,13 +41,12 @@ export const post = {
         {
           type: "object",
           fields: [
-            defineField({
+            {
               name: "styleType",
               title: "Style Type",
               type: "reference",
               to: [{ type: "styleType" }],
-              validation: (rule) => rule.required(),
-            }),
+            },
             defineField({
               name: "code",
               title: "Code",

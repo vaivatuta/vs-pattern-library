@@ -41,9 +41,12 @@ export default async function Post({ params }: Props) {
           <ul>
             {post.codeBlocks.map((block, i) => (
               <li key={i}>
-                <div className="flex flex-col gap-y-6 mt-8 leading-7 text-zinc-400">
-                  <p>{block.styleType.name}</p>
-                </div>
+                {block.styleType && (
+                  <p className="mt-8 leading-7 text-teal-400">
+                    {block.styleType.name}
+                  </p>
+                )}
+
                 <SyntaxHighlighter language="jsx" style={dark}>
                   {block.code.code}
                 </SyntaxHighlighter>

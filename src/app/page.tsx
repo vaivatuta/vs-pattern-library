@@ -14,7 +14,7 @@ export default async function Home() {
     <main className="max-w-7xl mx-auto lg:px-16 px-6">
       <section className="flex flex-col gap-20 lg:mt-32 mt-20 mb-16 items-center text-center">
         {[components, hooks].map((posts, i) => (
-          <div>
+          <div key={i === 0 ? "components" : "hooks"}>
             <h2 className="text-green-400 mb-4">
               {i === 0 ? "Components" : "Hooks"}
             </h2>
