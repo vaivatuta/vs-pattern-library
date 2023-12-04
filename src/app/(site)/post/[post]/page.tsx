@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { Post } from "../../../../types";
-import { getPostBySlug } from "../../../../sanity/sanity.query";
+import { Post } from "../../../../../types";
+import { getPostBySlug } from "../../../../../sanity/sanity.query";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 

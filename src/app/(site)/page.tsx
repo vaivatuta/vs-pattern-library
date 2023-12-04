@@ -1,5 +1,5 @@
-import { getPosts } from "../../sanity/sanity.query";
-import { Post } from "../../types";
+import { getPosts } from "../../../sanity/sanity.query";
+import { Post } from "../../../types";
 import Link from "next/link";
 
 export default async function Home() {
