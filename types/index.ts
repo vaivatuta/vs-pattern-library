@@ -14,7 +14,9 @@ export type PostTypeReference = {
 
 export type CodeBlock = {
   styleType: StyleTypeReference;
-  code: string;
+  code: {
+    code: string; // This allows accessing block.code.code
+  };
 };
 
 export type StyleTypeReference = {

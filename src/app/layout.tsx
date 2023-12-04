@@ -9,9 +9,6 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "VS Pattern Library",
   description: "A personal pattern library site built with Sanity and Next.js",
-  // openGraph: {
-  //   images: "add-your-open-graph-image-url-here",
-  // },
 };
 
 export default function RootLayout({

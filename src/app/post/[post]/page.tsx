@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { Post } from "../../../../types";
 import { getPostBySlug } from "../../../../sanity/sanity.query";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 type Props = {
   params: {
@@ -20,7 +22,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Post({ params }: Props) {
   const slug = params.post;
-  console.log(slug, "hlelo");
   const post: Post = await getPostBySlug(slug);
 
   return (
@@ -30,19 +31,26 @@ export default async function Post({ params }: Props) {
           <h2 className="font-bold lg:text-5xl text-3xl lg:leading-tight mb-4">
             {post.name}
           </h2>
-
-          {/* <a
-            href={post.postUrl}
-            rel="noreferrer noopener"
-            className="bg-[#1d1d20] text-white hover:border-zinc-700 border border-transparent rounded-md px-4 py-2"
-          >
-            Explore
-          </a> */}
         </div>
 
-        {/* <div className="flex flex-col gap-y-6 mt-8 leading-7 text-zinc-400">
-          <PortableText value={post.description} />
-        </div> */}
+        <div className="flex flex-col gap-y-6 mt-8 leading-7 text-zinc-400">
+          <p>{post.description}</p>
+        </div>
+
+        {post.codeBlocks && (
+          <ul>
+            {post.codeBlocks.map((block, i) => (
+              <li key={i}>
+                <div className="flex flex-col gap-y-6 mt-8 leading-7 text-zinc-400">
+                  <p>{block.styleType.name}</p>
+                </div>
+                <SyntaxHighlighter language="jsx" style={dark}>
+                  {block.code.code}
+                </SyntaxHighlighter>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </main>
   );
