@@ -6,14 +6,23 @@ export default function Footer() {
           All rights reserved &copy; {new Date().getFullYear()}
         </small>
 
-        <small className="hover:text-white duration-200">
+        <small className="flex flex-col gap-2">
           <a
             href="https://github.com/vaivatuta"
             target="_blank"
             rel="noreferrer noopener"
+            className="hover:text-white duration-200"
           >
             Prepared by{" "}
             <span className="text-green-400">Vaiva Staugaityte</span>
+          </a>
+          <a
+            href="https://github.com/daleinen7"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="hover:text-white duration-200"
+          >
+            Big big thanks to <span className="text-green-400">Doug</span>
           </a>
         </small>
       </div>
