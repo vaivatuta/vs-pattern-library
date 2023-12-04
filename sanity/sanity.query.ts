@@ -16,3 +16,20 @@ export async function getPosts() {
     }`
   );
 }
+
+export async function getPostBySlug(slug: string) {
+  return client.fetch(
+    groq`*[_type == "post" && slug.current == $slug][0]{
+      _id,
+      name,
+      // slug,
+      postType->,
+      description,
+      codeBlocks[]{
+        styleType->,
+        code
+      }
+    }`,
+    { slug }
+  );
+}

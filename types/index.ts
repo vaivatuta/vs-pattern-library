@@ -1,7 +1,9 @@
-export type PostType = {
+import { Slug } from "sanity";
+
+export type Post = {
   _id: string;
   name: string;
-  slug: string;
+  slug: Slug;
   postType: PostTypeReference;
   description: string;
   codeBlocks: CodeBlock[];
