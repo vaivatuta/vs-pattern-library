@@ -1,8 +1,11 @@
-import { Metadata } from "next";
+"use client";
+
+// import { Metadata } from "next";
 import { Post } from "../../../../../types";
 import { getPostBySlug } from "../../../../../sanity/sanity.query";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import copy from "clipboard-copy"; // Import clipboard-copy
 
 type Props = {
   params: {
@@ -10,15 +13,24 @@ type Props = {
   };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.post;
-  const post: Post = await getPostBySlug(slug);
-
-  return {
-    title: `${post.name} | VS Pattern Library`,
-    description: post.description,
-  };
+async function handleCopyClick(content: string) {
+  try {
+    await copy(content);
+    alert("Code copied to clipboard!");
+  } catch (error) {
+    console.error("Error copying to clipboard:", error);
+  }
 }
+
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+//   const slug = params.post;
+//   const post: Post = await getPostBySlug(slug);
+
+//   return {
+//     title: `${post.name} | VS Pattern Library`,
+//     description: post.description,
+//   };
+// }
 
 export default async function Post({ params }: Props) {
   const slug = params.post;
@@ -47,9 +59,18 @@ export default async function Post({ params }: Props) {
                   </p>
                 )}
 
-                <SyntaxHighlighter language="jsx" style={dark}>
-                  {block.code.code}
-                </SyntaxHighlighter>
+                <div className="relative">
+                  <button
+                    className="absolute top-2 right-2 px-2 py-1 bg-gray-800 text-white rounded"
+                    onClick={() => handleCopyClick(block.code.code)}
+                  >
+                    Copy
+                  </button>
+
+                  <SyntaxHighlighter language="jsx" style={dark}>
+                    {block.code.code}
+                  </SyntaxHighlighter>
+                </div>
               </li>
             ))}
           </ul>
