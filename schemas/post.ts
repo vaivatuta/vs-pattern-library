@@ -18,14 +18,12 @@ export const post = {
       to: [{ type: "componentType" }],
       validation: (rule) => rule.required(),
     }),
-    defineField(
-      defineField({
-        name: "description",
-        title: "Description",
-        type: "text",
-      })
-    ),
-    defineField({
+    {
+      name: "description",
+      title: "Description",
+      type: "text",
+    },
+    {
       name: "codeBlocks",
       title: "Code Blocks",
       type: "array",
@@ -48,10 +46,11 @@ export const post = {
                 language: "tsx",
                 languageAlternatives: [{ title: "jsx", value: "jsx" }],
               },
+              validation: (rule) => rule.required(),
             }),
           ],
         },
       ],
-    }),
+    },
   ],
 };
